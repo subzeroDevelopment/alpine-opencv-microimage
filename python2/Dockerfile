@@ -2,7 +2,7 @@
 FROM alpine
 
 #2 Add Edge and bleeding repos
-RUN echo -e '@edge http://nl.alpinelinux.org/alpine/edge/main\n@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
+RUN echo -e '@edge http://nl.alpinelinux.org/alpine/edge/main\n@testing http://nl.alpinelinux.org/alpine/edge/testing\n@community http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
 
 #3
 RUN apk update && apk upgrade && apk add --update \
@@ -30,7 +30,7 @@ RUN apk update && apk upgrade && apk add --update \
   clang \
   tiff-dev \
   libwebp-dev \
-  py-numpy-dev@testing \
+  py-numpy-dev@community \
   py-scipy-dev@testing \
   linux-headers
 
